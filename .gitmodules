@@ -1,3 +1,6 @@
 [submodule "Chair"]
 	path = Chair
 	url = https://github.com/Alfriadox/Chair.git
+[submodule "BOSL"]
+	path = BOSL
+	url = https://github.com/revarbat/BOSL.git
