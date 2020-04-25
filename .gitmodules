@@ -1,0 +1,3 @@
+[submodule "Chair"]
+	path = Chair
+	url = https://github.com/Alfriadox/Chair.git
