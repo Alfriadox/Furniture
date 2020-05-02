@@ -7,6 +7,12 @@ Wood material library.
 Useful for wood working projects.
 All units are assumed to be inches 
 unless indicated otherwise.
+
+This file includes the BOSL constants
+file, and should probably only be called
+using the `use` statement. Constants
+associated with lumber should be updated
+or found in lumber_constants.scad.
 */
 
 
@@ -17,6 +23,8 @@ use <../../bom.scad>;
 include <../../../BOSL/constants.scad>;
 use <../../../BOSL/masks.scad>;
 use <../../../BOSL/transforms.scad>;
+
+include <lumber_constants.scad>;
 
 // Generic nonstandard Lumber. 
 // Renders 'wheat' color.
@@ -74,41 +82,65 @@ module _L(width, length, depth, material, bom) {
 }
 
 // 1 by 4. Actual size: 0.75" by 3.5"
-module Lumber1x4(length, bom=true) {
-  _L(3.5, length, 0.75, "1x4 LUMBER", bom);
-}
+module Lumber1x4(length, bom=true) {_L(
+  LUMBER1X4WIDTH, 
+  length, 
+  LUMBER1X4DEPTH, 
+  "1x4 LUMBER", bom
+);}
 
 // 1 by 6. Actual size: 0.75" by 5.5"
-module Lumber1x6(length, bom=true) {
-  _L(5.5, length, 0.75, "1x6 LUMBER", bom);
-}
+module Lumber1x6(length, bom=true) {_L(
+  LUMBER1X6WIDTH,
+  length,
+  LUMBER1X6DEPTH,
+  "1x6 LUMBER", bom
+);}
 
 // 2 by 2. Actual size: 1.5" by 1.5"
-module Lumber2x2(length, bom=true) {
-  _L(1.5, length, 1.5, "2x2 LUMBER", bom);
-}
+module Lumber2x2(length, bom=true) {_L(
+  LUMBER2X2WIDTH,
+  length,
+  LUMBER2X2DEPTH, 
+  "2x2 LUMBER", bom
+);}
 
 // 2 by 4. Actual size: 1.5" by 3.5"
-module Lumber2x4(length, bom=true) {
-  _L(3.5, length, 1.5, "2x4 LUMBER", bom);
-}
+module Lumber2x4(length, bom=true) {_L(
+  LUMBER2X4WIDTH,
+  length,
+  LUMBER2X4DEPTH, 
+  "2x4 LUMBER", bom
+);}
 
 // 2 by 6. Actual size: 1.5" by 5.5"
-module Lumber2x6(length, bom=true) {
-  _L(5.5, length, 1.5, "2x6 LUMBER", bom);
-}
+module Lumber2x6(length, bom=true) {_L(
+  LUMBER2X6WIDTH,
+  length,
+  LUMBER2X6DEPTH, 
+  "2x6 LUMBER", bom
+);}
 
 // 2 by 8. Actual size: 1.5" by 7.25"
-module Lumber2x8(length, bom=true) {
-  _L(7.25, length, 1.5, "2x8 LUMBER", bom);
-}
+module Lumber2x8(length, bom=true) {_L(
+  LUMBER2X8WIDTH,
+  length,
+  LUMBER2X8DEPTH, 
+  "2x8 LUMBER", bom
+);}
 
 // 2 by 10. Actual size: 1.5" by 9.25"
-module Lumber2x10(length, bom=true) {
-  _L(9.25, length, 1.5, "2x10 LUMBER", bom);
-}
+module Lumber2x10(length, bom=true) {_L(
+  LUMBER2X10WIDTH,
+  length,
+  LUMBER2X10DEPTH, 
+  "2x10 LUMBER", bom
+);}
 
 // 4 by 4. Actual size: 3.5" by 3.5"
-module Lumber4x4(length, bom=true) {
-  _L(3.5, length, 3.5, "4x4 LUMBER", bom);
-}
+module Lumber4x4(length, bom=true) {_L(
+  LUMBER4X4WIDTH,
+  length,
+  LUMBER4X4DEPTH, 
+  "4x4 LUMBER", bom
+);}

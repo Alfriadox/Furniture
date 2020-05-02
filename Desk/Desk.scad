@@ -22,6 +22,9 @@ use <../util/material/wood/plywood.scad>;
 use <../util/material/wood/lumber.scad>;
 use <../util/verify.scad>;
 
+include <../util/material/wood/lumber_constants.scad>;
+include <../util/units.scad>;
+
 include <../BOSL/constants.scad>;
 use <../BOSL/transforms.scad>;
 
@@ -42,21 +45,44 @@ module DeskTop(
   AssertIsNum(depth);
   AssertIsNum(thickness);
   // top
-  zmove(3.5)
-  Plywood(width, depth, thickness);
+  zmove(LUMBER1X4WIDTH)
+  GenericPlywood(width, depth, thickness);
   // side pieces
   grid3d(
-    xa=[0:width-0.75:width-0.75]
+    xa=[0:width-LUMBER1X4DEPTH:width-LUMBER1X4DEPTH]
   )
-  xmove(0.75)
+  xmove(LUMBER1X4DEPTH)
   yrot(270)
   Lumber1x4(depth);
   // back piece
-  ymove(depth-0.75)
-  xmove(0.75)
+  ymove(depth-LUMBER1X4DEPTH)
+  xmove(LUMBER1X4DEPTH)
   xrot(-90)
   zrot(-90)
-  Lumber1x4(width-2*0.75);
+  Lumber1x4(width-2*LUMBER1X4DEPTH);
 }
 
-DeskTop(36, 24, 0.75);
+
+// The desk assembly itself. 
+module Desk(
+  floor_to_surface, // distance from floor to surface
+  width, // full width of desktop
+  depth, // how far back the desk extends
+  top_thickness // thickness of desktop material
+) {
+  AssertIsNum(floor_to_surface);
+  AssertIsNum(width);
+  AssertIsNum(depth);
+  AssertIsNum(top_thickness);
+  
+  zmove(floor_to_surface)
+  zmove(-(top_thickness + LUMBER1X4WIDTH))
+  DeskTop(width, depth, top_thickness);
+}
+
+// My specific build of this desk
+module NiaDesk() {
+  Desk(30, 58, 32, 1);
+}
+
+NiaDesk();
