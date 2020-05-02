@@ -27,6 +27,8 @@ include <../util/units.scad>;
 
 include <../BOSL/constants.scad>;
 use <../BOSL/transforms.scad>;
+use <../BOSL/shapes.scad>;
+
 
 // set circle resolution.
 $fn = 90;
@@ -60,8 +62,22 @@ module DeskTop(
   xrot(-90)
   zrot(-90)
   Lumber1x4(width-2*LUMBER1X4DEPTH);
+  // front piece
+  ymove(LUMBER2X4WIDTH)
+  xmove(LUMBER1X4DEPTH)
+  zmove(LUMBER1X4WIDTH)
+  zmove(-LUMBER2X4DEPTH)
+  zrot(-90)
+  Lumber2x4(width-2*LUMBER1X4DEPTH);
 }
 
+// A leg of the desk, with a nice taper.
+module DeskLeg(
+  height, // the height of the leg
+  
+) {
+  
+}
 
 // The desk assembly itself. 
 module Desk(
@@ -78,6 +94,7 @@ module Desk(
   zmove(floor_to_surface)
   zmove(-(top_thickness + LUMBER1X4WIDTH))
   DeskTop(width, depth, top_thickness);
+  
 }
 
 // My specific build of this desk
