@@ -71,12 +71,14 @@ module DeskTop(
   Lumber2x4(width-2*LUMBER1X4DEPTH);
 }
 
-// A leg of the desk, with a nice taper.
+// A leg of the desk.
 module DeskLeg(
   height, // the height of the leg
   
 ) {
-  
+  xrot(90)
+  yrot(90)
+  Lumber2x2(height);
 }
 
 // The desk assembly itself. 
@@ -102,4 +104,5 @@ module NiaDesk() {
   Desk(30, 58, 32, 1);
 }
 
-NiaDesk();
+//NiaDesk();
+DeskLeg(30);

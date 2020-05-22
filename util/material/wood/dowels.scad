@@ -3,6 +3,9 @@ Nia Calia-Bogan
 May 2, 2020
 OpenSCAD 2019.05
 
+WIP: Not ready for use.
+TODO: Implement Standard dowel sizes.
+
 Wood dowel modules.
 */
 
@@ -54,6 +57,3 @@ module _D(d, l, c_s, c_a=45, material, bom) {
   if (bom) Bom(material, l);
   GenericDowel(d, l, c_s, c_a, false);
 }
-
-// 1/4 inch dowel
-module Dowel_1_4
